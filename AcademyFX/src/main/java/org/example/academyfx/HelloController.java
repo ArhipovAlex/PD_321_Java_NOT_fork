@@ -105,7 +105,6 @@ public class HelloController {
             }
             data.add(row);
         }
-
         tableDirections.setItems(data);
 
         connection.close();
