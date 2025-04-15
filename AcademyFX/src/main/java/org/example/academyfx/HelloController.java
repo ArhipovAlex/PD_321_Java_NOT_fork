@@ -9,6 +9,9 @@ import javafx.scene.control.*;
 import javafx.util.Callback;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class HelloController {
     /*@FXML
@@ -36,7 +39,7 @@ public class HelloController {
     @FXML
     private Button check;
     @FXML
-    private TableView tableDirections;
+    private TableView<String[]> tableDirections;
     @FXML
     protected void onLoadButtonClick()throws SQLException
     {
@@ -85,27 +88,22 @@ public class HelloController {
         ResultSet set = statement.executeQuery("SELECT * FROM Directions");
         for(int i=0;i<set.getMetaData().getColumnCount();i++)
         {
-            final int j = i;
-            TableColumn col = new TableColumn(set.getMetaData().getColumnName(i+1));
-            col.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ObservableList,String>, ObservableValue<String>>() {
-                @Override
-                public ObservableValue<String> call(TableColumn.CellDataFeatures<ObservableList, String> param) {
-                    return new SimpleStringProperty(param.getValue().get(j).toString());
-                }
-            });
-            tableDirections.getColumns().add(col);
+            TableColumn<String[],String> column = new TableColumn<>(set.getMetaData().getColumnLabel(i+1));
+            tableDirections.getColumns().add(column);
+            final  int j=i;
+            column.setCellValueFactory(data->new SimpleStringProperty(data.getValue()[j]));
         }
-        ObservableList<ObservableList> data = FXCollections.observableArrayList();
-        while(set.next())
+        while (set.next())
         {
-            ObservableList<String> row = FXCollections.observableArrayList();
-            for(int i=1;i<=set.getMetaData().getColumnCount();i++)
+            Collection<String> list = new ArrayList<>();
+            for (int i=1; i<=set.getMetaData().getColumnCount();i++)
             {
-                row.add(set.getString(i));
+                list.add(set.getString(i));
             }
-            data.add(row);
+            String[] arr = new String[list.size()];
+            list.toArray(arr);
+            tableDirections.getItems().addAll(arr);
         }
-        tableDirections.setItems(data);
 
         connection.close();
     }
