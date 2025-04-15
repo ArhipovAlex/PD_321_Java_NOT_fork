@@ -12,8 +12,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.stream.Collector;
 
 public class HelloController {
+    private Connector connector = null;
     /*@FXML
     private Label welcomeText;
     @FXML
@@ -40,6 +42,8 @@ public class HelloController {
     private Button check;
     @FXML
     private TableView<String[]> tableDirections;
+    @FXML
+    private Label status;
     @FXML
     protected void onLoadButtonClick()throws SQLException
     {
@@ -74,7 +78,7 @@ public class HelloController {
     @FXML
     protected void loadDirections()throws SQLException
     {
-        String connectionString =
+        /*String connectionString =
                 "jdbc:sqlserver://localhost:1433;"+
                         "DataSource=DESKTOP-CU1U64A;" +
                         "Database=PD_212;" +
@@ -82,8 +86,8 @@ public class HelloController {
                         "password=111;" +
                         "ConnectTimeout=30;Encrypt=True;" +
                         "TrustServerCertificate=True;";
-        Connection connection = DriverManager.getConnection(connectionString);
-        Statement statement = connection.createStatement();
+        Connection connection = DriverManager.getConnection(connectionString);*/
+        Statement statement = connector.getConnection().createStatement();
 
         ResultSet set = statement.executeQuery("SELECT * FROM Directions");
         for(int i=0;i<set.getMetaData().getColumnCount();i++)
@@ -105,7 +109,50 @@ public class HelloController {
             tableDirections.getItems().addAll(arr);
         }
 
-        connection.close();
+        //connection.close();
     }
-
+    @FXML
+    protected void connect()
+    {
+        if(connector == null)
+        {
+            String connectionString =
+                    "jdbc:sqlserver://localhost:1433;"+
+                            "DataSource=DESKTOP-CU1U64A;" +
+                            "Database=PD_212;" +
+                            "user=PHP;" +
+                            "password=111;" +
+                            "ConnectTimeout=30;Encrypt=True;" +
+                            "TrustServerCertificate=True;";
+            try {
+                connector = new Connector(connectionString);
+                status.setText("Connected\n"+connector.getConnection().toString());
+            }
+            catch (SQLException e)
+            {
+                Alert error = new Alert(Alert.AlertType.ERROR, e.getMessage(),ButtonType.OK);
+                error.showAndWait();
+            }
+        }
+        else {
+            Alert error = new Alert(Alert.AlertType.ERROR, "Connection already done",ButtonType.OK);
+            error.showAndWait();
+        }
+    }
+    @FXML
+    protected void disconnect()
+    {
+        if(connector!=null)
+        {
+            try {
+                connector.closeConnection();
+                connector = null;
+                //TODO: clear all data
+                status.setText("Disconnected");
+            } catch (SQLException e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR,e.getMessage(),ButtonType.OK);
+                alert.showAndWait();
+            }
+        }
+    }
 }
