@@ -26,6 +26,15 @@ public class HelloController {
         textFieldStatus.setText("Connected: " + Connector.getConnection().toString());
     }
     @FXML
+    protected void onTabStudentsSelected()throws IOException
+    {
+        if(tabStudents.isSelected())
+        {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("View/student-view.fxml"));
+            tabStudents.setContent(fxmlLoader.load());
+        }
+    }
+    @FXML
     protected void onTabDirectionSelected()throws IOException
     {
         if(tabDirections.isSelected())
