@@ -33,11 +33,13 @@ public class StudentViewController extends HumanViewController
     private final ObservableList<Student> list = FXCollections.observableArrayList();
 
     @FXML
-    private void initialize()
+    protected void initialize()
     {
-        load();
+        super.initialize();
+        group.setCellValueFactory(data->data.getValue().groupProperty().asObject());
+        //getDataFromBase();
     }
-    protected void load()
+    public void getDataFromBase()
     {
         try {
             /*id.setCellValueFactory(data -> data.getValue().idProperty().asObject());
@@ -46,7 +48,8 @@ public class StudentViewController extends HumanViewController
             middleName.setCellValueFactory(data -> data.getValue().middleNameProperty());
             birthDate.setCellValueFactory(data -> data.getValue().birthDateProperty());
             group.setCellValueFactory(data -> data.getValue().groupProperty().asObject());*/
-            super.load();
+
+            //super.getDataFromBase();
             Statement statement = Connector.getConnection().createStatement();
             ResultSet set = statement.executeQuery("SELECT * FROM Students");
             while(set.next()) list.add(new Student(set.getInt(1), set.getString(2), set.getString(3), set.getString(4), (Date) set.getObject(5), set.getInt(6)));
