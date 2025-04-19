@@ -30,22 +30,23 @@ public class HumanViewController {
     protected final ObservableList<Human> list = FXCollections.observableArrayList();
 
     @FXML
-    private void initialize()
+    protected void initialize()
     {
         id.setCellValueFactory(data -> data.getValue().idProperty().asObject());
         lastName.setCellValueFactory(data -> data.getValue().lastNameProperty());
         firstName.setCellValueFactory(data -> data.getValue().firstNameProperty());
         middleName.setCellValueFactory(data -> data.getValue().middleNameProperty());
         birthDate.setCellValueFactory(data -> data.getValue().birthDateProperty());
-        load();
+        //getDataFromBase();
     }
-    protected void load()
+    public void getDataFromBase()
     {
 
         try {
             Statement statement = Connector.getConnection().createStatement();
-            ResultSet set = statement.executeQuery("SELECT * FROM Students, Teachers");
-            while(set.next()) list.add(new Human(set.getInt(1), set.getString(2), set.getString(3), set.getString(4), (Date) set.getObject(5)));
+            ResultSet set = statement.executeQuery("SELECT * FROM Students");
+            while(set.next())
+                list.add(new Human(set.getInt(1), set.getString(2), set.getString(3), set.getString(4), (Date) set.getObject(5)));
             tableHumans.setItems(list);
             set.close();
             statement.close();
