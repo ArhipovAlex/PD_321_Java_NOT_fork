@@ -13,11 +13,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
 
-public class StudentViewController
+public class StudentViewController extends HumanViewController
 {
     @FXML
     private TableView<Student> tableStudents;
-    @FXML
+    /*@FXML
     private TableColumn<Student, Integer> id;
     @FXML
     private TableColumn<Student, String> lastName;
@@ -26,7 +26,7 @@ public class StudentViewController
     @FXML
     private TableColumn<Student, String> middleName;
     @FXML
-    private TableColumn<Student, Date> birthDate;
+    private TableColumn<Student, Date> birthDate;*/
     @FXML
     private TableColumn<Student, Integer> group;
 
@@ -35,13 +35,18 @@ public class StudentViewController
     @FXML
     private void initialize()
     {
+        load();
+    }
+    protected void load()
+    {
         try {
-            id.setCellValueFactory(data -> data.getValue().idProperty().asObject());
+            /*id.setCellValueFactory(data -> data.getValue().idProperty().asObject());
             lastName.setCellValueFactory(data -> data.getValue().lastNameProperty());
             firstName.setCellValueFactory(data -> data.getValue().firstNameProperty());
             middleName.setCellValueFactory(data -> data.getValue().middleNameProperty());
             birthDate.setCellValueFactory(data -> data.getValue().birthDateProperty());
-            group.setCellValueFactory(data -> data.getValue().groupProperty().asObject());
+            group.setCellValueFactory(data -> data.getValue().groupProperty().asObject());*/
+            super.load();
             Statement statement = Connector.getConnection().createStatement();
             ResultSet set = statement.executeQuery("SELECT * FROM Students");
             while(set.next()) list.add(new Student(set.getInt(1), set.getString(2), set.getString(3), set.getString(4), (Date) set.getObject(5), set.getInt(6)));
