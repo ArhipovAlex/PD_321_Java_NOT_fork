@@ -4,34 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5649df1a-35b9-4be6-b976-9798110bf66d" name="Changes" comment="TableViewGenerics in connector">
-      <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Attendance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/AttendanceId.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/CompleteDiscipline.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/CompleteDisciplineId.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/DemandDiscipline.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/DemandDisciplineId.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Direction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Discipline.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Examination.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/ExaminationId.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Grade.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/GradeId.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Group.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Schedule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesDirectionsRelation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesDirectionsRelationId.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesDisciplinesRelation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesDisciplinesRelationId.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesTeachersRelation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesTeachersRelationId.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Speciality.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Teacher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/TeachersDisciplinesRelation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/TeachersDisciplinesRelationId.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/repository/DirectionRepository.java" afterDir="false" />
-    </list>
+    <list default="true" id="5649df1a-35b9-4be6-b976-9798110bf66d" name="Changes" comment="Merge from TableView" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -113,6 +86,14 @@
       </method>
     </configuration>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.23774.435" />
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-IU-251.23774.435" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -170,8 +151,19 @@
       <option name="project" value="LOCAL" />
       <updated>1744725558663</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Merge from TableView">
+      <option name="closed" value="true" />
+      <created>1745666104522</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1745666104522</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -192,6 +184,7 @@
     <MESSAGE value="NOT fork" />
     <MESSAGE value="TableViewGenerics DONE" />
     <MESSAGE value="TableViewGenerics in connector" />
-    <option name="LAST_COMMIT_MESSAGE" value="TableViewGenerics in connector" />
+    <MESSAGE value="Merge from TableView" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge from TableView" />
   </component>
 </project>
