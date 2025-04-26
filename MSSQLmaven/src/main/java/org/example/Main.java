@@ -10,46 +10,53 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Main {
+    static String connectionString =
+            "jdbc:sqlserver://localhost:1433;" +
+                    "database=PD_212;" +
+                    "user=PHP;" +
+                    "password=111;" +
+                    "Connect Timeout=30;Encrypt=True;" +
+                    "TrustServerCertificate=True;";
+    static Connection connection;
+
     public static void main(String[] args) {
-        System.out.println("Hello, World!");
-        //Main.forName("C:\\Program Files\\Microsoft JDBC DRIVER 12.8 for SQL Server\\enu\\jars\\mssql-jdbc-12.10.0.jre8.jar");
-        String connectionString =
-                "jdbc:sqlserver://localhost:1433;" +
-                        "database=PD_212;" +
-                        "user=PHP;" +
-                        "password=111;"+
-                        "Connect Timeout=30;Encrypt=True;" +
-                        "TrustServerCertificate=True;";
-        Connector connector = new Connector(connectionString);
+
+        System.out.println(connectionString);
+        try {
+            connection = DriverManager.getConnection(connectionString);
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
         String query =
                 "SELECT " +
                         "FORMATMESSAGE(N'%s %s %s',last_name,first_name,middle_name) AS N'Студент', " +
                         "group_name," +
                         "direction_name " +
                         "FROM Students JOIN Groups ON ([group]=group_id) JOIN Directions ON (direction=direction_id)";
-        connector.Select(query);
-        String scalarQuery = "SELECT COUNT(*) FROM Students";
-        //System.out.println(connector.Scalar(scalarQuery));
-        connector.Select("SELECT * FROM Directions");
-        /*try
-        {
-            Connection connection = DriverManager.getConnection(connectionString);  //Создает соединение
+        Select(query);
+        Select("SELECT * FROM Directions");
+    }
 
-            Statement statement = connection.createStatement();     //Открывает соединение
+    public static void Select(String query) {
+        try {
+            Statement statement = connection.createStatement();//Открывает соединение??????/
 
-            ResultSet results = statement.executeQuery("SELECT * FROM Directions");
-            while (results.next())
-            {
-                byte id = results.getByte("direction_id");
-                String name = results.getString("direction_name");
-                System.out.println(id + "\t\t" + name);
+            ResultSet results = statement.executeQuery(query);
+            ResultSetMetaData metaData = results.getMetaData();
+            for (int i = 1; i <= metaData.getColumnCount(); i++) {
+                System.out.println(metaData.getColumnName(i) + "\t\t" + metaData.getColumnClassName(i));
             }
-
-            connection.close();
+            System.out.println();
+            while (results.next()) {
+                for (int i = 1; i <= metaData.getColumnCount(); i++) {
+                    System.out.print(results.getObject(i) + "\t");
+                }
+                System.out.println();
+            }
+            results.close();
+            //connection.close(); //Если закрыть, то последующие вызовы Select() НЕ будут работать
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
         }
-        catch (SQLException e)
-        {
-            e.printStackTrace();
-        }*/
     }
-    }
+}
