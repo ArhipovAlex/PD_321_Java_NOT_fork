@@ -1,0 +1,1598 @@
+Index: ../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/TeachersDisciplinesRelation.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/TeachersDisciplinesRelation.java b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/TeachersDisciplinesRelation.java
+new file mode 100644
+--- /dev/null	(date 1745502472542)
++++ b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/TeachersDisciplinesRelation.java	(date 1745502472542)
+@@ -0,0 +1,44 @@
++package com.example.springdatajpa2.entity;
++
++import jakarta.persistence.*;
++
++@Entity
++public class TeachersDisciplinesRelation {
++    @EmbeddedId
++    private TeachersDisciplinesRelationId id;
++
++    @MapsId("teacher")
++    @ManyToOne(fetch = FetchType.LAZY, optional = false)
++    @JoinColumn(name = "teacher", nullable = false)
++    private Teacher teacher;
++
++    @MapsId("discipline")
++    @ManyToOne(fetch = FetchType.LAZY, optional = false)
++    @JoinColumn(name = "discipline", nullable = false)
++    private Discipline discipline;
++
++    public TeachersDisciplinesRelationId getId() {
++        return id;
++    }
++
++    public void setId(TeachersDisciplinesRelationId id) {
++        this.id = id;
++    }
++
++    public Teacher getTeacher() {
++        return teacher;
++    }
++
++    public void setTeacher(Teacher teacher) {
++        this.teacher = teacher;
++    }
++
++    public Discipline getDiscipline() {
++        return discipline;
++    }
++
++    public void setDiscipline(Discipline discipline) {
++        this.discipline = discipline;
++    }
++
++}
+\ No newline at end of file
+Index: ../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Attendance.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Attendance.java b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Attendance.java
+new file mode 100644
+--- /dev/null	(date 1745502472489)
++++ b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Attendance.java	(date 1745502472489)
+@@ -0,0 +1,55 @@
++package com.example.springdatajpa2.entity;
++
++import jakarta.persistence.*;
++
++@Entity
++public class Attendance {
++    @EmbeddedId
++    private AttendanceId id;
++
++    @MapsId("student")
++    @ManyToOne(fetch = FetchType.LAZY, optional = false)
++    @JoinColumn(name = "student", nullable = false)
++    private Student student;
++
++    @MapsId("lesson")
++    @ManyToOne(fetch = FetchType.LAZY, optional = false)
++    @JoinColumn(name = "lesson", nullable = false)
++    private Schedule lesson;
++
++    @Column(name = "present", nullable = false)
++    private Boolean present = false;
++
++    public AttendanceId getId() {
++        return id;
++    }
++
++    public void setId(AttendanceId id) {
++        this.id = id;
++    }
++
++    public Student getStudent() {
++        return student;
++    }
++
++    public void setStudent(Student student) {
++        this.student = student;
++    }
++
++    public Schedule getLesson() {
++        return lesson;
++    }
++
++    public void setLesson(Schedule lesson) {
++        this.lesson = lesson;
++    }
++
++    public Boolean getPresent() {
++        return present;
++    }
++
++    public void setPresent(Boolean present) {
++        this.present = present;
++    }
++
++}
+\ No newline at end of file
+Index: ../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/DemandDisciplineId.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/DemandDisciplineId.java b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/DemandDisciplineId.java
+new file mode 100644
+--- /dev/null	(date 1745502472692)
++++ b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/DemandDisciplineId.java	(date 1745502472692)
+@@ -0,0 +1,49 @@
++package com.example.springdatajpa2.entity;
++
++import jakarta.persistence.Column;
++import jakarta.persistence.Embeddable;
++import org.hibernate.Hibernate;
++
++import java.io.Serializable;
++import java.util.Objects;
++
++@Embeddable
++public class DemandDisciplineId implements Serializable {
++    private static final long serialVersionUID = -495140873184089912L;
++    @Column(name = "pending_discipline", nullable = false)
++    private Short pendingDiscipline;
++
++    @Column(name = "necessary_discipline", nullable = false)
++    private Short necessaryDiscipline;
++
++    public Short getPendingDiscipline() {
++        return pendingDiscipline;
++    }
++
++    public void setPendingDiscipline(Short pendingDiscipline) {
++        this.pendingDiscipline = pendingDiscipline;
++    }
++
++    public Short getNecessaryDiscipline() {
++        return necessaryDiscipline;
++    }
++
++    public void setNecessaryDiscipline(Short necessaryDiscipline) {
++        this.necessaryDiscipline = necessaryDiscipline;
++    }
++
++    @Override
++    public boolean equals(Object o) {
++        if (this == o) return true;
++        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
++        DemandDisciplineId entity = (DemandDisciplineId) o;
++        return Objects.equals(this.necessaryDiscipline, entity.necessaryDiscipline) &&
++                Objects.equals(this.pendingDiscipline, entity.pendingDiscipline);
++    }
++
++    @Override
++    public int hashCode() {
++        return Objects.hash(necessaryDiscipline, pendingDiscipline);
++    }
++
++}
+\ No newline at end of file
+Index: ../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/DemandDiscipline.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/DemandDiscipline.java b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/DemandDiscipline.java
+new file mode 100644
+--- /dev/null	(date 1745502472611)
++++ b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/DemandDiscipline.java	(date 1745502472611)
+@@ -0,0 +1,45 @@
++package com.example.springdatajpa2.entity;
++
++import jakarta.persistence.*;
++
++@Entity
++@Table(name = "DemandDisciplines")
++public class DemandDiscipline {
++    @EmbeddedId
++    private DemandDisciplineId id;
++
++    @MapsId("pendingDiscipline")
++    @ManyToOne(fetch = FetchType.LAZY, optional = false)
++    @JoinColumn(name = "pending_discipline", nullable = false)
++    private Discipline pendingDiscipline;
++
++    @MapsId("necessaryDiscipline")
++    @ManyToOne(fetch = FetchType.LAZY, optional = false)
++    @JoinColumn(name = "necessary_discipline", nullable = false)
++    private Discipline necessaryDiscipline;
++
++    public DemandDisciplineId getId() {
++        return id;
++    }
++
++    public void setId(DemandDisciplineId id) {
++        this.id = id;
++    }
++
++    public Discipline getPendingDiscipline() {
++        return pendingDiscipline;
++    }
++
++    public void setPendingDiscipline(Discipline pendingDiscipline) {
++        this.pendingDiscipline = pendingDiscipline;
++    }
++
++    public Discipline getNecessaryDiscipline() {
++        return necessaryDiscipline;
++    }
++
++    public void setNecessaryDiscipline(Discipline necessaryDiscipline) {
++        this.necessaryDiscipline = necessaryDiscipline;
++    }
++
++}
+\ No newline at end of file
+Index: ../SpringDataJPA2/src/main/java/com/example/springdatajpa2/repository/DirectionRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/repository/DirectionRepository.java b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/repository/DirectionRepository.java
+new file mode 100644
+--- /dev/null	(date 1745501600585)
++++ b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/repository/DirectionRepository.java	(date 1745501600585)
+@@ -0,0 +1,7 @@
++package com.example.springdatajpa2.repository;
++
++import com.example.springdatajpa2.entity.Direction;
++import org.springframework.data.jpa.repository.JpaRepository;
++
++public interface DirectionRepository extends JpaRepository<Direction,Short> {
++}
+Index: ../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Examination.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Examination.java b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Examination.java
+new file mode 100644
+--- /dev/null	(date 1745502472532)
++++ b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Examination.java	(date 1745502472532)
+@@ -0,0 +1,56 @@
++package com.example.springdatajpa2.entity;
++
++import jakarta.persistence.*;
++
++@Entity
++@Table(name = "Examinations")
++public class Examination {
++    @EmbeddedId
++    private ExaminationId id;
++
++    @MapsId("student")
++    @ManyToOne(fetch = FetchType.LAZY, optional = false)
++    @JoinColumn(name = "student", nullable = false)
++    private Student student;
++
++    @MapsId("lesson")
++    @ManyToOne(fetch = FetchType.LAZY, optional = false)
++    @JoinColumn(name = "lesson", nullable = false)
++    private Schedule lesson;
++
++    @Column(name = "grade", columnDefinition = "tinyint")
++    private Short grade;
++
++    public ExaminationId getId() {
++        return id;
++    }
++
++    public void setId(ExaminationId id) {
++        this.id = id;
++    }
++
++    public Student getStudent() {
++        return student;
++    }
++
++    public void setStudent(Student student) {
++        this.student = student;
++    }
++
++    public Schedule getLesson() {
++        return lesson;
++    }
++
++    public void setLesson(Schedule lesson) {
++        this.lesson = lesson;
++    }
++
++    public Short getGrade() {
++        return grade;
++    }
++
++    public void setGrade(Short grade) {
++        this.grade = grade;
++    }
++
++}
+\ No newline at end of file
+Index: ../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/CompleteDiscipline.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/CompleteDiscipline.java b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/CompleteDiscipline.java
+new file mode 100644
+--- /dev/null	(date 1745502472603)
++++ b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/CompleteDiscipline.java	(date 1745502472603)
+@@ -0,0 +1,45 @@
++package com.example.springdatajpa2.entity;
++
++import jakarta.persistence.*;
++
++@Entity
++@Table(name = "CompleteDisciplines")
++public class CompleteDiscipline {
++    @EmbeddedId
++    private CompleteDisciplineId id;
++
++    @MapsId("group")
++    @ManyToOne(fetch = FetchType.LAZY, optional = false)
++    @JoinColumn(name = "\"group\"", nullable = false)
++    private Group group;
++
++    @MapsId("discipline")
++    @ManyToOne(fetch = FetchType.LAZY, optional = false)
++    @JoinColumn(name = "discipline", nullable = false)
++    private Discipline discipline;
++
++    public CompleteDisciplineId getId() {
++        return id;
++    }
++
++    public void setId(CompleteDisciplineId id) {
++        this.id = id;
++    }
++
++    public Group getGroup() {
++        return group;
++    }
++
++    public void setGroup(Group group) {
++        this.group = group;
++    }
++
++    public Discipline getDiscipline() {
++        return discipline;
++    }
++
++    public void setDiscipline(Discipline discipline) {
++        this.discipline = discipline;
++    }
++
++}
+\ No newline at end of file
+Index: ../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/CompleteDisciplineId.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/CompleteDisciplineId.java b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/CompleteDisciplineId.java
+new file mode 100644
+--- /dev/null	(date 1745502472523)
++++ b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/CompleteDisciplineId.java	(date 1745502472523)
+@@ -0,0 +1,49 @@
++package com.example.springdatajpa2.entity;
++
++import jakarta.persistence.Column;
++import jakarta.persistence.Embeddable;
++import org.hibernate.Hibernate;
++
++import java.io.Serializable;
++import java.util.Objects;
++
++@Embeddable
++public class CompleteDisciplineId implements Serializable {
++    private static final long serialVersionUID = -6933382124406861588L;
++    @Column(name = "\"group\"", nullable = false)
++    private Integer group;
++
++    @Column(name = "discipline", nullable = false)
++    private Short discipline;
++
++    public Integer getGroup() {
++        return group;
++    }
++
++    public void setGroup(Integer group) {
++        this.group = group;
++    }
++
++    public Short getDiscipline() {
++        return discipline;
++    }
++
++    public void setDiscipline(Short discipline) {
++        this.discipline = discipline;
++    }
++
++    @Override
++    public boolean equals(Object o) {
++        if (this == o) return true;
++        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
++        CompleteDisciplineId entity = (CompleteDisciplineId) o;
++        return Objects.equals(this.discipline, entity.discipline) &&
++                Objects.equals(this.group, entity.group);
++    }
++
++    @Override
++    public int hashCode() {
++        return Objects.hash(discipline, group);
++    }
++
++}
+\ No newline at end of file
+Index: ../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Schedule.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Schedule.java b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Schedule.java
+new file mode 100644
+--- /dev/null	(date 1745502472635)
++++ b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Schedule.java	(date 1745502472635)
+@@ -0,0 +1,91 @@
++package com.example.springdatajpa2.entity;
++
++import jakarta.persistence.*;
++
++import java.time.LocalDate;
++import java.time.LocalTime;
++
++@Entity
++public class Schedule {
++    @Id
++    @Column(name = "lesson_id", nullable = false)
++    private Long id;
++
++    @ManyToOne(fetch = FetchType.LAZY, optional = false)
++    @JoinColumn(name = "discipline", nullable = false)
++    private Discipline discipline;
++
++    @ManyToOne(fetch = FetchType.LAZY)
++    @JoinColumn(name = "teacher")
++    private Teacher teacher;
++
++    @Column(name = "\"date\"")
++    private LocalDate date;
++
++    @Column(name = "\"time\"")
++    private LocalTime time;
++
++    @Column(name = "spent", nullable = false)
++    private Boolean spent = false;
++
++    @ManyToOne(fetch = FetchType.LAZY)
++    @JoinColumn(name = "\"group\"")
++    private Group group;
++
++    public Long getId() {
++        return id;
++    }
++
++    public void setId(Long id) {
++        this.id = id;
++    }
++
++    public Discipline getDiscipline() {
++        return discipline;
++    }
++
++    public void setDiscipline(Discipline discipline) {
++        this.discipline = discipline;
++    }
++
++    public Teacher getTeacher() {
++        return teacher;
++    }
++
++    public void setTeacher(Teacher teacher) {
++        this.teacher = teacher;
++    }
++
++    public LocalDate getDate() {
++        return date;
++    }
++
++    public void setDate(LocalDate date) {
++        this.date = date;
++    }
++
++    public LocalTime getTime() {
++        return time;
++    }
++
++    public void setTime(LocalTime time) {
++        this.time = time;
++    }
++
++    public Boolean getSpent() {
++        return spent;
++    }
++
++    public void setSpent(Boolean spent) {
++        this.spent = spent;
++    }
++
++    public Group getGroup() {
++        return group;
++    }
++
++    public void setGroup(Group group) {
++        this.group = group;
++    }
++
++}
+\ No newline at end of file
+Index: ../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/ExaminationId.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/ExaminationId.java b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/ExaminationId.java
+new file mode 100644
+--- /dev/null	(date 1745502472582)
++++ b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/ExaminationId.java	(date 1745502472582)
+@@ -0,0 +1,49 @@
++package com.example.springdatajpa2.entity;
++
++import jakarta.persistence.Column;
++import jakarta.persistence.Embeddable;
++import org.hibernate.Hibernate;
++
++import java.io.Serializable;
++import java.util.Objects;
++
++@Embeddable
++public class ExaminationId implements Serializable {
++    private static final long serialVersionUID = -959597777694986795L;
++    @Column(name = "student", nullable = false)
++    private Integer student;
++
++    @Column(name = "lesson", nullable = false)
++    private Long lesson;
++
++    public Integer getStudent() {
++        return student;
++    }
++
++    public void setStudent(Integer student) {
++        this.student = student;
++    }
++
++    public Long getLesson() {
++        return lesson;
++    }
++
++    public void setLesson(Long lesson) {
++        this.lesson = lesson;
++    }
++
++    @Override
++    public boolean equals(Object o) {
++        if (this == o) return true;
++        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
++        ExaminationId entity = (ExaminationId) o;
++        return Objects.equals(this.student, entity.student) &&
++                Objects.equals(this.lesson, entity.lesson);
++    }
++
++    @Override
++    public int hashCode() {
++        return Objects.hash(student, lesson);
++    }
++
++}
+\ No newline at end of file
+Index: ../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Discipline.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Discipline.java b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Discipline.java
+new file mode 100644
+--- /dev/null	(date 1745501834057)
++++ b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Discipline.java	(date 1745501834057)
+@@ -0,0 +1,47 @@
++package com.example.springdatajpa2.entity;
++
++import jakarta.persistence.Column;
++import jakarta.persistence.Entity;
++import jakarta.persistence.Id;
++import jakarta.persistence.Table;
++import org.hibernate.annotations.Nationalized;
++
++@Entity
++@Table(name = "Disciplines")
++public class Discipline {
++    @Id
++    @Column(name = "discipline_id", nullable = false)
++    private Short id;
++
++    @Nationalized
++    @Column(name = "discipline_name", nullable = false, length = 150)
++    private String disciplineName;
++
++    @Column(name = "number_of_lessons", columnDefinition = "tinyint not null")
++    private Short numberOfLessons;
++
++    public Short getId() {
++        return id;
++    }
++
++    public void setId(Short id) {
++        this.id = id;
++    }
++
++    public String getDisciplineName() {
++        return disciplineName;
++    }
++
++    public void setDisciplineName(String disciplineName) {
++        this.disciplineName = disciplineName;
++    }
++
++    public Short getNumberOfLessons() {
++        return numberOfLessons;
++    }
++
++    public void setNumberOfLessons(Short numberOfLessons) {
++        this.numberOfLessons = numberOfLessons;
++    }
++
++}
+\ No newline at end of file
+Index: ../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesDirectionsRelation.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesDirectionsRelation.java b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesDirectionsRelation.java
+new file mode 100644
+--- /dev/null	(date 1745502472548)
++++ b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesDirectionsRelation.java	(date 1745502472548)
+@@ -0,0 +1,44 @@
++package com.example.springdatajpa2.entity;
++
++import jakarta.persistence.*;
++
++@Entity
++public class SpecialitiesDirectionsRelation {
++    @EmbeddedId
++    private SpecialitiesDirectionsRelationId id;
++
++    @MapsId("direction")
++    @ManyToOne(fetch = FetchType.LAZY, optional = false)
++    @JoinColumn(name = "direction", nullable = false)
++    private Direction direction;
++
++    @MapsId("speciality")
++    @ManyToOne(fetch = FetchType.LAZY, optional = false)
++    @JoinColumn(name = "speciality", nullable = false)
++    private Speciality speciality;
++
++    public SpecialitiesDirectionsRelationId getId() {
++        return id;
++    }
++
++    public void setId(SpecialitiesDirectionsRelationId id) {
++        this.id = id;
++    }
++
++    public Direction getDirection() {
++        return direction;
++    }
++
++    public void setDirection(Direction direction) {
++        this.direction = direction;
++    }
++
++    public Speciality getSpeciality() {
++        return speciality;
++    }
++
++    public void setSpeciality(Speciality speciality) {
++        this.speciality = speciality;
++    }
++
++}
+\ No newline at end of file
+Index: ../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Direction.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Direction.java b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Direction.java
+new file mode 100644
+--- /dev/null	(date 1745502052883)
++++ b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Direction.java	(date 1745502052883)
+@@ -0,0 +1,36 @@
++package com.example.springdatajpa2.entity;
++
++import jakarta.persistence.Column;
++import jakarta.persistence.Entity;
++import jakarta.persistence.Id;
++import jakarta.persistence.Table;
++import org.hibernate.annotations.Nationalized;
++
++@Entity
++@Table(name = "Directions")
++public class Direction {
++    @Id
++    @Column(name = "direction_id", nullable = false)
++    private Short id;
++
++    @Nationalized
++    @Column(name = "direction_name", nullable = false, length = 50)
++    private String directionName;
++
++    public Short getId() {
++        return id;
++    }
++
++    public void setId(Short id) {
++        this.id = id;
++    }
++
++    public String getDirectionName() {
++        return directionName;
++    }
++
++    public void setDirectionName(String directionName) {
++        this.directionName = directionName;
++    }
++
++}
+\ No newline at end of file
+Index: ../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/TeachersDisciplinesRelationId.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/TeachersDisciplinesRelationId.java b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/TeachersDisciplinesRelationId.java
+new file mode 100644
+--- /dev/null	(date 1745502472559)
++++ b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/TeachersDisciplinesRelationId.java	(date 1745502472559)
+@@ -0,0 +1,49 @@
++package com.example.springdatajpa2.entity;
++
++import jakarta.persistence.Column;
++import jakarta.persistence.Embeddable;
++import org.hibernate.Hibernate;
++
++import java.io.Serializable;
++import java.util.Objects;
++
++@Embeddable
++public class TeachersDisciplinesRelationId implements Serializable {
++    private static final long serialVersionUID = -2664580029201142068L;
++    @Column(name = "teacher", nullable = false)
++    private Integer teacher;
++
++    @Column(name = "discipline", nullable = false)
++    private Short discipline;
++
++    public Integer getTeacher() {
++        return teacher;
++    }
++
++    public void setTeacher(Integer teacher) {
++        this.teacher = teacher;
++    }
++
++    public Short getDiscipline() {
++        return discipline;
++    }
++
++    public void setDiscipline(Short discipline) {
++        this.discipline = discipline;
++    }
++
++    @Override
++    public boolean equals(Object o) {
++        if (this == o) return true;
++        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
++        TeachersDisciplinesRelationId entity = (TeachersDisciplinesRelationId) o;
++        return Objects.equals(this.teacher, entity.teacher) &&
++                Objects.equals(this.discipline, entity.discipline);
++    }
++
++    @Override
++    public int hashCode() {
++        return Objects.hash(teacher, discipline);
++    }
++
++}
+\ No newline at end of file
+Index: ../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesTeachersRelation.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesTeachersRelation.java b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesTeachersRelation.java
+new file mode 100644
+--- /dev/null	(date 1745502472573)
++++ b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesTeachersRelation.java	(date 1745502472573)
+@@ -0,0 +1,44 @@
++package com.example.springdatajpa2.entity;
++
++import jakarta.persistence.*;
++
++@Entity
++public class SpecialitiesTeachersRelation {
++    @EmbeddedId
++    private SpecialitiesTeachersRelationId id;
++
++    @MapsId("speciality")
++    @ManyToOne(fetch = FetchType.LAZY, optional = false)
++    @JoinColumn(name = "speciality", nullable = false)
++    private Speciality speciality;
++
++    @MapsId("teacher")
++    @ManyToOne(fetch = FetchType.LAZY, optional = false)
++    @JoinColumn(name = "teacher", nullable = false)
++    private Teacher teacher;
++
++    public SpecialitiesTeachersRelationId getId() {
++        return id;
++    }
++
++    public void setId(SpecialitiesTeachersRelationId id) {
++        this.id = id;
++    }
++
++    public Speciality getSpeciality() {
++        return speciality;
++    }
++
++    public void setSpeciality(Speciality speciality) {
++        this.speciality = speciality;
++    }
++
++    public Teacher getTeacher() {
++        return teacher;
++    }
++
++    public void setTeacher(Teacher teacher) {
++        this.teacher = teacher;
++    }
++
++}
+\ No newline at end of file
+Index: ../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesDisciplinesRelation.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesDisciplinesRelation.java b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesDisciplinesRelation.java
+new file mode 100644
+--- /dev/null	(date 1745502472679)
++++ b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesDisciplinesRelation.java	(date 1745502472679)
+@@ -0,0 +1,44 @@
++package com.example.springdatajpa2.entity;
++
++import jakarta.persistence.*;
++
++@Entity
++public class SpecialitiesDisciplinesRelation {
++    @EmbeddedId
++    private SpecialitiesDisciplinesRelationId id;
++
++    @MapsId("speciality")
++    @ManyToOne(fetch = FetchType.LAZY, optional = false)
++    @JoinColumn(name = "speciality", nullable = false)
++    private Speciality speciality;
++
++    @MapsId("discipline")
++    @ManyToOne(fetch = FetchType.LAZY, optional = false)
++    @JoinColumn(name = "discipline", nullable = false)
++    private Discipline discipline;
++
++    public SpecialitiesDisciplinesRelationId getId() {
++        return id;
++    }
++
++    public void setId(SpecialitiesDisciplinesRelationId id) {
++        this.id = id;
++    }
++
++    public Speciality getSpeciality() {
++        return speciality;
++    }
++
++    public void setSpeciality(Speciality speciality) {
++        this.speciality = speciality;
++    }
++
++    public Discipline getDiscipline() {
++        return discipline;
++    }
++
++    public void setDiscipline(Discipline discipline) {
++        this.discipline = discipline;
++    }
++
++}
+\ No newline at end of file
+Index: ../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesDirectionsRelationId.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesDirectionsRelationId.java b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesDirectionsRelationId.java
+new file mode 100644
+--- /dev/null	(date 1745502472553)
++++ b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesDirectionsRelationId.java	(date 1745502472553)
+@@ -0,0 +1,49 @@
++package com.example.springdatajpa2.entity;
++
++import jakarta.persistence.Column;
++import jakarta.persistence.Embeddable;
++import org.hibernate.Hibernate;
++
++import java.io.Serializable;
++import java.util.Objects;
++
++@Embeddable
++public class SpecialitiesDirectionsRelationId implements Serializable {
++    private static final long serialVersionUID = 194955310911546052L;
++    @Column(name = "direction", columnDefinition = "tinyint not null")
++    private Short direction;
++
++    @Column(name = "speciality", nullable = false)
++    private Short speciality;
++
++    public Short getDirection() {
++        return direction;
++    }
++
++    public void setDirection(Short direction) {
++        this.direction = direction;
++    }
++
++    public Short getSpeciality() {
++        return speciality;
++    }
++
++    public void setSpeciality(Short speciality) {
++        this.speciality = speciality;
++    }
++
++    @Override
++    public boolean equals(Object o) {
++        if (this == o) return true;
++        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
++        SpecialitiesDirectionsRelationId entity = (SpecialitiesDirectionsRelationId) o;
++        return Objects.equals(this.speciality, entity.speciality) &&
++                Objects.equals(this.direction, entity.direction);
++    }
++
++    @Override
++    public int hashCode() {
++        return Objects.hash(speciality, direction);
++    }
++
++}
+\ No newline at end of file
+Index: ../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/GradeId.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/GradeId.java b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/GradeId.java
+new file mode 100644
+--- /dev/null	(date 1745502472622)
++++ b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/GradeId.java	(date 1745502472622)
+@@ -0,0 +1,49 @@
++package com.example.springdatajpa2.entity;
++
++import jakarta.persistence.Column;
++import jakarta.persistence.Embeddable;
++import org.hibernate.Hibernate;
++
++import java.io.Serializable;
++import java.util.Objects;
++
++@Embeddable
++public class GradeId implements Serializable {
++    private static final long serialVersionUID = 3409022540218344669L;
++    @Column(name = "student", nullable = false)
++    private Integer student;
++
++    @Column(name = "lesson", nullable = false)
++    private Long lesson;
++
++    public Integer getStudent() {
++        return student;
++    }
++
++    public void setStudent(Integer student) {
++        this.student = student;
++    }
++
++    public Long getLesson() {
++        return lesson;
++    }
++
++    public void setLesson(Long lesson) {
++        this.lesson = lesson;
++    }
++
++    @Override
++    public boolean equals(Object o) {
++        if (this == o) return true;
++        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
++        GradeId entity = (GradeId) o;
++        return Objects.equals(this.student, entity.student) &&
++                Objects.equals(this.lesson, entity.lesson);
++    }
++
++    @Override
++    public int hashCode() {
++        return Objects.hash(student, lesson);
++    }
++
++}
+\ No newline at end of file
+Index: ../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Teacher.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Teacher.java b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Teacher.java
+new file mode 100644
+--- /dev/null	(date 1745502472723)
++++ b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Teacher.java	(date 1745502472723)
+@@ -0,0 +1,84 @@
++package com.example.springdatajpa2.entity;
++
++import jakarta.persistence.Column;
++import jakarta.persistence.Entity;
++import jakarta.persistence.Id;
++import jakarta.persistence.Table;
++import org.hibernate.annotations.Nationalized;
++
++import java.time.LocalDate;
++
++@Entity
++@Table(name = "Teachers")
++public class Teacher {
++    @Id
++    @Column(name = "teacher_id", nullable = false)
++    private Integer id;
++
++    @Nationalized
++    @Column(name = "last_name", nullable = false, length = 50)
++    private String lastName;
++
++    @Nationalized
++    @Column(name = "first_name", nullable = false, length = 50)
++    private String firstName;
++
++    @Nationalized
++    @Column(name = "middle_name", length = 50)
++    private String middleName;
++
++    @Column(name = "birth_date", nullable = false)
++    private LocalDate birthDate;
++
++    @Column(name = "work_since", nullable = false)
++    private LocalDate workSince;
++
++    public Integer getId() {
++        return id;
++    }
++
++    public void setId(Integer id) {
++        this.id = id;
++    }
++
++    public String getLastName() {
++        return lastName;
++    }
++
++    public void setLastName(String lastName) {
++        this.lastName = lastName;
++    }
++
++    public String getFirstName() {
++        return firstName;
++    }
++
++    public void setFirstName(String firstName) {
++        this.firstName = firstName;
++    }
++
++    public String getMiddleName() {
++        return middleName;
++    }
++
++    public void setMiddleName(String middleName) {
++        this.middleName = middleName;
++    }
++
++    public LocalDate getBirthDate() {
++        return birthDate;
++    }
++
++    public void setBirthDate(LocalDate birthDate) {
++        this.birthDate = birthDate;
++    }
++
++    public LocalDate getWorkSince() {
++        return workSince;
++    }
++
++    public void setWorkSince(LocalDate workSince) {
++        this.workSince = workSince;
++    }
++
++}
+\ No newline at end of file
+Index: ../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Speciality.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Speciality.java b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Speciality.java
+new file mode 100644
+--- /dev/null	(date 1745502472650)
++++ b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Speciality.java	(date 1745502472650)
+@@ -0,0 +1,36 @@
++package com.example.springdatajpa2.entity;
++
++import jakarta.persistence.Column;
++import jakarta.persistence.Entity;
++import jakarta.persistence.Id;
++import jakarta.persistence.Table;
++import org.hibernate.annotations.Nationalized;
++
++@Entity
++@Table(name = "Specialities")
++public class Speciality {
++    @Id
++    @Column(name = "speciality_id", nullable = false)
++    private Short id;
++
++    @Nationalized
++    @Column(name = "speciality_name", length = 50)
++    private String specialityName;
++
++    public Short getId() {
++        return id;
++    }
++
++    public void setId(Short id) {
++        this.id = id;
++    }
++
++    public String getSpecialityName() {
++        return specialityName;
++    }
++
++    public void setSpecialityName(String specialityName) {
++        this.specialityName = specialityName;
++    }
++
++}
+\ No newline at end of file
+Index: ../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesTeachersRelationId.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesTeachersRelationId.java b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesTeachersRelationId.java
+new file mode 100644
+--- /dev/null	(date 1745502472566)
++++ b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesTeachersRelationId.java	(date 1745502472566)
+@@ -0,0 +1,49 @@
++package com.example.springdatajpa2.entity;
++
++import jakarta.persistence.Column;
++import jakarta.persistence.Embeddable;
++import org.hibernate.Hibernate;
++
++import java.io.Serializable;
++import java.util.Objects;
++
++@Embeddable
++public class SpecialitiesTeachersRelationId implements Serializable {
++    private static final long serialVersionUID = -3633145356518142881L;
++    @Column(name = "speciality", nullable = false)
++    private Short speciality;
++
++    @Column(name = "teacher", nullable = false)
++    private Integer teacher;
++
++    public Short getSpeciality() {
++        return speciality;
++    }
++
++    public void setSpeciality(Short speciality) {
++        this.speciality = speciality;
++    }
++
++    public Integer getTeacher() {
++        return teacher;
++    }
++
++    public void setTeacher(Integer teacher) {
++        this.teacher = teacher;
++    }
++
++    @Override
++    public boolean equals(Object o) {
++        if (this == o) return true;
++        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
++        SpecialitiesTeachersRelationId entity = (SpecialitiesTeachersRelationId) o;
++        return Objects.equals(this.speciality, entity.speciality) &&
++                Objects.equals(this.teacher, entity.teacher);
++    }
++
++    @Override
++    public int hashCode() {
++        return Objects.hash(speciality, teacher);
++    }
++
++}
+\ No newline at end of file
+Index: ../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/AttendanceId.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/AttendanceId.java b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/AttendanceId.java
+new file mode 100644
+--- /dev/null	(date 1745502472593)
++++ b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/AttendanceId.java	(date 1745502472593)
+@@ -0,0 +1,49 @@
++package com.example.springdatajpa2.entity;
++
++import jakarta.persistence.Column;
++import jakarta.persistence.Embeddable;
++import org.hibernate.Hibernate;
++
++import java.io.Serializable;
++import java.util.Objects;
++
++@Embeddable
++public class AttendanceId implements Serializable {
++    private static final long serialVersionUID = 7890153477276164673L;
++    @Column(name = "student", nullable = false)
++    private Integer student;
++
++    @Column(name = "lesson", nullable = false)
++    private Long lesson;
++
++    public Integer getStudent() {
++        return student;
++    }
++
++    public void setStudent(Integer student) {
++        this.student = student;
++    }
++
++    public Long getLesson() {
++        return lesson;
++    }
++
++    public void setLesson(Long lesson) {
++        this.lesson = lesson;
++    }
++
++    @Override
++    public boolean equals(Object o) {
++        if (this == o) return true;
++        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
++        AttendanceId entity = (AttendanceId) o;
++        return Objects.equals(this.student, entity.student) &&
++                Objects.equals(this.lesson, entity.lesson);
++    }
++
++    @Override
++    public int hashCode() {
++        return Objects.hash(student, lesson);
++    }
++
++}
+\ No newline at end of file
+Index: ../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Group.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Group.java b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Group.java
+new file mode 100644
+--- /dev/null	(date 1745502472706)
++++ b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Group.java	(date 1745502472706)
+@@ -0,0 +1,45 @@
++package com.example.springdatajpa2.entity;
++
++import jakarta.persistence.*;
++import org.hibernate.annotations.Nationalized;
++
++@Entity
++@Table(name = "Groups")
++public class Group {
++    @Id
++    @Column(name = "group_id", nullable = false)
++    private Integer id;
++
++    @Nationalized
++    @Column(name = "group_name", nullable = false, length = 10)
++    private String groupName;
++
++    @ManyToOne(fetch = FetchType.LAZY, optional = false)
++    @JoinColumn(name = "direction", nullable = false)
++    private Direction direction;
++
++    public Integer getId() {
++        return id;
++    }
++
++    public void setId(Integer id) {
++        this.id = id;
++    }
++
++    public String getGroupName() {
++        return groupName;
++    }
++
++    public void setGroupName(String groupName) {
++        this.groupName = groupName;
++    }
++
++    public Direction getDirection() {
++        return direction;
++    }
++
++    public void setDirection(Direction direction) {
++        this.direction = direction;
++    }
++
++}
+\ No newline at end of file
+Index: ../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesDisciplinesRelationId.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesDisciplinesRelationId.java b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesDisciplinesRelationId.java
+new file mode 100644
+--- /dev/null	(date 1745502472507)
++++ b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesDisciplinesRelationId.java	(date 1745502472507)
+@@ -0,0 +1,49 @@
++package com.example.springdatajpa2.entity;
++
++import jakarta.persistence.Column;
++import jakarta.persistence.Embeddable;
++import org.hibernate.Hibernate;
++
++import java.io.Serializable;
++import java.util.Objects;
++
++@Embeddable
++public class SpecialitiesDisciplinesRelationId implements Serializable {
++    private static final long serialVersionUID = -8522257329187364734L;
++    @Column(name = "speciality", nullable = false)
++    private Short speciality;
++
++    @Column(name = "discipline", nullable = false)
++    private Short discipline;
++
++    public Short getSpeciality() {
++        return speciality;
++    }
++
++    public void setSpeciality(Short speciality) {
++        this.speciality = speciality;
++    }
++
++    public Short getDiscipline() {
++        return discipline;
++    }
++
++    public void setDiscipline(Short discipline) {
++        this.discipline = discipline;
++    }
++
++    @Override
++    public boolean equals(Object o) {
++        if (this == o) return true;
++        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
++        SpecialitiesDisciplinesRelationId entity = (SpecialitiesDisciplinesRelationId) o;
++        return Objects.equals(this.speciality, entity.speciality) &&
++                Objects.equals(this.discipline, entity.discipline);
++    }
++
++    @Override
++    public int hashCode() {
++        return Objects.hash(speciality, discipline);
++    }
++
++}
+\ No newline at end of file
+Index: ../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Student.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Student.java b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Student.java
+new file mode 100644
+--- /dev/null	(date 1745502472667)
++++ b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Student.java	(date 1745502472667)
+@@ -0,0 +1,82 @@
++package com.example.springdatajpa2.entity;
++
++import jakarta.persistence.*;
++import org.hibernate.annotations.Nationalized;
++
++import java.time.LocalDate;
++
++@Entity
++@Table(name = "Students")
++public class Student {
++    @Id
++    @Column(name = "stud_id", nullable = false)
++    private Integer id;
++
++    @Nationalized
++    @Column(name = "last_name", nullable = false, length = 32)
++    private String lastName;
++
++    @Nationalized
++    @Column(name = "first_name", nullable = false, length = 32)
++    private String firstName;
++
++    @Nationalized
++    @Column(name = "middle_name", length = 32)
++    private String middleName;
++
++    @Column(name = "birth_date", nullable = false)
++    private LocalDate birthDate;
++
++    @ManyToOne(fetch = FetchType.LAZY, optional = false)
++    @JoinColumn(name = "\"group\"", nullable = false)
++    private Group group;
++
++    public Integer getId() {
++        return id;
++    }
++
++    public void setId(Integer id) {
++        this.id = id;
++    }
++
++    public String getLastName() {
++        return lastName;
++    }
++
++    public void setLastName(String lastName) {
++        this.lastName = lastName;
++    }
++
++    public String getFirstName() {
++        return firstName;
++    }
++
++    public void setFirstName(String firstName) {
++        this.firstName = firstName;
++    }
++
++    public String getMiddleName() {
++        return middleName;
++    }
++
++    public void setMiddleName(String middleName) {
++        this.middleName = middleName;
++    }
++
++    public LocalDate getBirthDate() {
++        return birthDate;
++    }
++
++    public void setBirthDate(LocalDate birthDate) {
++        this.birthDate = birthDate;
++    }
++
++    public Group getGroup() {
++        return group;
++    }
++
++    public void setGroup(Group group) {
++        this.group = group;
++    }
++
++}
+\ No newline at end of file
+Index: ../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Grade.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Grade.java b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Grade.java
+new file mode 100644
+--- /dev/null	(date 1745502472537)
++++ b/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Grade.java	(date 1745502472537)
+@@ -0,0 +1,67 @@
++package com.example.springdatajpa2.entity;
++
++import jakarta.persistence.*;
++
++@Entity
++@Table(name = "Grades")
++public class Grade {
++    @EmbeddedId
++    private GradeId id;
++
++    @MapsId("student")
++    @ManyToOne(fetch = FetchType.LAZY, optional = false)
++    @JoinColumn(name = "student", nullable = false)
++    private Student student;
++
++    @MapsId("lesson")
++    @ManyToOne(fetch = FetchType.LAZY, optional = false)
++    @JoinColumn(name = "lesson", nullable = false)
++    private Schedule lesson;
++
++    @Column(name = "grade_1", columnDefinition = "tinyint")
++    private Short grade1;
++
++    @Column(name = "grade_2", columnDefinition = "tinyint")
++    private Short grade2;
++
++    public GradeId getId() {
++        return id;
++    }
++
++    public void setId(GradeId id) {
++        this.id = id;
++    }
++
++    public Student getStudent() {
++        return student;
++    }
++
++    public void setStudent(Student student) {
++        this.student = student;
++    }
++
++    public Schedule getLesson() {
++        return lesson;
++    }
++
++    public void setLesson(Schedule lesson) {
++        this.lesson = lesson;
++    }
++
++    public Short getGrade1() {
++        return grade1;
++    }
++
++    public void setGrade1(Short grade1) {
++        this.grade1 = grade1;
++    }
++
++    public Short getGrade2() {
++        return grade2;
++    }
++
++    public void setGrade2(Short grade2) {
++        this.grade2 = grade2;
++    }
++
++}
+\ No newline at end of file

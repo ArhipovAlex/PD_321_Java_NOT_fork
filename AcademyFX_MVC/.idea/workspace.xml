@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4594e312-285d-46a5-88dd-091fffa440f3" name="Changes" comment="AWT DONE">
+    <list default="true" id="00660d98-789a-4fd5-b797-ac74b299e93a" name="Changes" comment="getDataFromBase in Human &amp; Student DONE">
       <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Attendance.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/AttendanceId.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/CompleteDiscipline.java" afterDir="false" />
@@ -40,6 +40,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -47,7 +48,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="ConnectorInterface" />
+        <entry key="$PROJECT_DIR$/.." value="TableViewGenerics" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -55,81 +56,137 @@
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;okovtun&quot;
+    &quot;assignee&quot;: &quot;ArhipovAlex&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/ArhipovAlex/PD_321_Java_NOT_fork.git",
-    "accountId": "34bca614-dd86-48be-9503-22f3d71efb13"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ArhipovAlex/PD_321_Java_NOT_fork.git&quot;,
+    &quot;accountId&quot;: &quot;34bca614-dd86-48be-9503-22f3d71efb13&quot;
   }
-}]]></component>
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 8
+  &quot;associatedIndex&quot;: 5
 }</component>
-  <component name="ProjectId" id="2vXDUceK82b9lkIEewh32oziom3" />
+  <component name="ProjectId" id="2vvfghWOo0vLgDQtmOsZdXy5Uz5" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.AcademyFX_MVC.executor": "Run",
+    "Application.HelloApplication.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "ConnectorInterface",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Install/sqljdbc_12.10/rus/jars",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\liney\source\repos\PD_321_JavaOK\AcademyFX_MVC\src\main\resources\org\example\academyfx_mvc\View" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.example.academyfx_mvc" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="AcademyFX_MVC" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="org.example.academyfx_mvc.HelloApplication" />
+      <module name="AcademyFX_MVC" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4594e312-285d-46a5-88dd-091fffa440f3" name="Changes" comment="" />
-      <created>1744282544847</created>
+      <changelist id="00660d98-789a-4fd5-b797-ac74b299e93a" name="Changes" comment="" />
+      <created>1745030585256</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1744282544847</updated>
+      <updated>1745030585256</updated>
     </task>
-    <task id="LOCAL-00001" summary="AWT form in progress">
+    <task id="LOCAL-00001" summary="MVC Directions">
       <option name="closed" value="true" />
-      <created>1744285080028</created>
+      <created>1745045429677</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1744285080028</updated>
+      <updated>1745045429677</updated>
     </task>
-    <task id="LOCAL-00002" summary="AWT form text fields DONE">
+    <task id="LOCAL-00002" summary="MVC Directions">
       <option name="closed" value="true" />
-      <created>1744287647654</created>
+      <created>1745045457710</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1744287647654</updated>
+      <updated>1745045457710</updated>
     </task>
-    <task id="LOCAL-00003" summary="AWT close Window DONE">
+    <task id="LOCAL-00003" summary="MVC Students DONE">
       <option name="closed" value="true" />
-      <created>1744288412196</created>
+      <created>1745055546635</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1744288412196</updated>
+      <updated>1745055546635</updated>
     </task>
-    <task id="LOCAL-00004" summary="AWT DONE">
+    <task id="LOCAL-00004" summary="Controller Inheritance in progress">
       <option name="closed" value="true" />
-      <created>1744289007886</created>
+      <created>1745060040271</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1744289007886</updated>
+      <updated>1745060040271</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="getDataFromBase in Human &amp; Student DONE">
+      <option name="closed" value="true" />
+      <created>1745061772122</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1745061772122</updated>
+    </task>
+    <task id="LOCAL-00006" summary="getDataFromBase in Human &amp; Student DONE">
+      <option name="closed" value="true" />
+      <created>1745492186494</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1745492186494</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="AWT form in progress" />
-    <MESSAGE value="AWT form text fields DONE" />
-    <MESSAGE value="AWT close Window DONE" />
-    <MESSAGE value="AWT DONE" />
-    <option name="LAST_COMMIT_MESSAGE" value="AWT DONE" />
+    <MESSAGE value="MVC Directions" />
+    <MESSAGE value="MVC Students DONE" />
+    <MESSAGE value="Controller Inheritance in progress" />
+    <MESSAGE value="getDataFromBase in Human &amp; Student DONE" />
+    <option name="LAST_COMMIT_MESSAGE" value="getDataFromBase in Human &amp; Student DONE" />
   </component>
 </project>

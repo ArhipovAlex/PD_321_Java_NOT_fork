@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="javafx-sdk-24">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../../../../../../Install/javafx-sdk-24" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/../../../../../../Install/javafx-sdk-24" recursive="false" type="SOURCES" />
+  </library>
+</component>
