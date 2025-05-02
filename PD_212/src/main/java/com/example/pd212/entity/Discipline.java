@@ -1,4 +1,4 @@
-package com.example.springdatajpa2.entity;
+package com.example.pd212.entity;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.Nationalized;
@@ -7,7 +7,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "Disciplines")
+@Table(name = "Disciplines", schema = "dbo")
 public class Discipline {
     @Id
     @Column(name = "discipline_id", nullable = false)
@@ -24,7 +24,7 @@ public class Discipline {
     @JoinTable(name = "TeachersDisciplinesRelation",
             joinColumns = @JoinColumn(name = "discipline"),
             inverseJoinColumns = @JoinColumn(name = "teacher"))
-    private Set<com.example.springdatajpa2.entity.Teacher> teachers = new LinkedHashSet<>();
+    private Set<Teacher> teachers = new LinkedHashSet<>();
 
     public Short getId() {
         return id;
@@ -50,11 +50,11 @@ public class Discipline {
         this.numberOfLessons = numberOfLessons;
     }
 
-    public Set<com.example.springdatajpa2.entity.Teacher> getTeachers() {
+    public Set<Teacher> getTeachers() {
         return teachers;
     }
 
-    public void setTeachers(Set<com.example.springdatajpa2.entity.Teacher> teachers) {
+    public void setTeachers(Set<Teacher> teachers) {
         this.teachers = teachers;
     }
 

@@ -1,4 +1,4 @@
-package com.example.springdatajpa2.entity;
+package com.example.pd212.entity;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.Nationalized;
@@ -8,7 +8,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "Teachers")
+@Table(name = "Teachers", schema = "dbo")
 public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,7 +34,7 @@ public class Teacher {
     private LocalDate workSince;
 
     @ManyToMany(mappedBy = "teachers")
-    private Set<com.example.springdatajpa2.entity.Discipline> disciplines = new LinkedHashSet<>();
+    private Set<Discipline> disciplines = new LinkedHashSet<>();
 
     public Integer getId() {
         return id;
@@ -84,12 +84,23 @@ public class Teacher {
         this.workSince = workSince;
     }
 
-    public Set<com.example.springdatajpa2.entity.Discipline> getDisciplines() {
+    public Set<Discipline> getDisciplines() {
         return disciplines;
     }
 
-    public void setDisciplines(Set<com.example.springdatajpa2.entity.Discipline> disciplines) {
+    public void setDisciplines(Set<Discipline> disciplines) {
         this.disciplines = disciplines;
     }
 
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "id=" + id +
+                ", lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", birthDate=" + birthDate +
+                ", workSince=" + workSince +
+                '}';
+    }
 }

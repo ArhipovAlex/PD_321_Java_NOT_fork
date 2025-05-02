@@ -5,39 +5,39 @@ import jakarta.persistence.*;
 @Entity
 public class TeachersDisciplinesRelation {
     @EmbeddedId
-    private TeachersDisciplinesRelationId id;
+    private com.example.springdatajpa2.entity.TeachersDisciplinesRelationId id;
 
     @MapsId("teacher")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "teacher", nullable = false)
-    private Teacher teacher;
+    private com.example.springdatajpa2.entity.Teacher teacher;
 
     @MapsId("discipline")
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "discipline", nullable = false)
-    private Discipline discipline;
+    private com.example.springdatajpa2.entity.Discipline discipline;
 
-    public TeachersDisciplinesRelationId getId() {
+    public com.example.springdatajpa2.entity.TeachersDisciplinesRelationId getId() {
         return id;
     }
 
-    public void setId(TeachersDisciplinesRelationId id) {
+    public void setId(com.example.springdatajpa2.entity.TeachersDisciplinesRelationId id) {
         this.id = id;
     }
 
-    public Teacher getTeacher() {
+    public com.example.springdatajpa2.entity.Teacher getTeacher() {
         return teacher;
     }
 
-    public void setTeacher(Teacher teacher) {
+    public void setTeacher(com.example.springdatajpa2.entity.Teacher teacher) {
         this.teacher = teacher;
     }
 
-    public Discipline getDiscipline() {
+    public com.example.springdatajpa2.entity.Discipline getDiscipline() {
         return discipline;
     }
 
-    public void setDiscipline(Discipline discipline) {
+    public void setDiscipline(com.example.springdatajpa2.entity.Discipline discipline) {
         this.discipline = discipline;
     }
 

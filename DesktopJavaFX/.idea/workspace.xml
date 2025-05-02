@@ -5,7 +5,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45d5df49-192d-410e-9572-f1f0734618a4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../ReadMe.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../ReadMe.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PD_212/src/main/java/com/example/pd212/entity/Discipline.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PD_212/src/main/java/com/example/pd212/entity/Teacher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PD_212/src/main/java/com/example/pd212/entity/TeachersDisciplinesRelation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PD_212/src/main/java/com/example/pd212/entity/TeachersDisciplinesRelationId.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PD_212/src/main/java/com/example/pd212/repository/DisciplineRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PD_212/src/main/java/com/example/pd212/repository/TeacherRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/repository/TeacherRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringJPAMovies/src/main/java/com/example/springjpamovies/entity/Director.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringJPAMovies/src/main/java/com/example/springjpamovies/entity/Movie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringJPAMovies/src/main/java/com/example/springjpamovies/repository/DirectorRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringJPAMovies/src/main/java/com/example/springjpamovies/repository/MovieRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AcademyFX/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AcademyFX/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AcademyFX/target/classes/org/example/academyfx/HelloController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AcademyFX/target/classes/org/example/academyfx/HelloController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AcademyFX/target/classes/org/example/academyfx/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../AcademyFX/target/classes/org/example/academyfx/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Attendance.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/AttendanceId.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/CompleteDiscipline.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/CompleteDisciplineId.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/DemandDiscipline.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/DemandDisciplineId.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Direction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Discipline.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Discipline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Examination.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/ExaminationId.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Grade.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/GradeId.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Group.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Schedule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesDirectionsRelation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesDirectionsRelationId.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesDisciplinesRelation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesDisciplinesRelationId.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesTeachersRelation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesTeachersRelationId.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Speciality.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Student.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Teacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Teacher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/TeachersDisciplinesRelation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/TeachersDisciplinesRelation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/repository/DirectionRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringDataJPA2/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/target/classes/com/example/springdatajpa2/entity/Direction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/target/classes/com/example/springdatajpa2/entity/Discipline.class" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringDataJPA2/target/classes/com/example/springdatajpa2/entity/Discipline.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/target/classes/com/example/springdatajpa2/repository/DirectionRepository.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,38 +58,38 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "okovtun"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;okovtun&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
-    "url": "https://github.com/okovtun/PD_321_Java.git",
-    "accountId": "f56c63dc-f95f-43ae-8667-6589ebc0a9a5"
+    "url": "https://github.com/ArhipovAlex/PD_321_Java_NOT_fork.git",
+    "accountId": "34bca614-dd86-48be-9503-22f3d71efb13"
   }
 }]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2vXQklXLeiSz9aQDJn53KzShlax" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
