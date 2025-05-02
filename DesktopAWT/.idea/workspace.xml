@@ -5,51 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4594e312-285d-46a5-88dd-091fffa440f3" name="Changes" comment="AWT DONE">
-      <change afterPath="$PROJECT_DIR$/../PD_212/src/main/java/com/example/pd212/entity/Discipline.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PD_212/src/main/java/com/example/pd212/entity/Teacher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PD_212/src/main/java/com/example/pd212/entity/TeachersDisciplinesRelation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PD_212/src/main/java/com/example/pd212/entity/TeachersDisciplinesRelationId.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PD_212/src/main/java/com/example/pd212/repository/DisciplineRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PD_212/src/main/java/com/example/pd212/repository/TeacherRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/repository/TeacherRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringJPAMovies/src/main/java/com/example/springjpamovies/entity/Director.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringJPAMovies/src/main/java/com/example/springjpamovies/entity/Movie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringJPAMovies/src/main/java/com/example/springjpamovies/repository/DirectorRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringJPAMovies/src/main/java/com/example/springjpamovies/repository/MovieRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AcademyFX/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AcademyFX/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AcademyFX/target/classes/org/example/academyfx/HelloController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AcademyFX/target/classes/org/example/academyfx/HelloController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AcademyFX/target/classes/org/example/academyfx/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../AcademyFX/target/classes/org/example/academyfx/hello-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DesktopJavaFX/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../DesktopJavaFX/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Attendance.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/AttendanceId.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/CompleteDiscipline.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/CompleteDisciplineId.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/DemandDiscipline.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/DemandDisciplineId.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Direction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Discipline.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Discipline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Examination.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/ExaminationId.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Grade.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/GradeId.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Group.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Schedule.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesDirectionsRelation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesDirectionsRelationId.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesDisciplinesRelation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesDisciplinesRelationId.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesTeachersRelation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/SpecialitiesTeachersRelationId.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Speciality.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Student.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Teacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/Teacher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/TeachersDisciplinesRelation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/entity/TeachersDisciplinesRelation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/java/com/example/springdatajpa2/repository/DirectionRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringDataJPA2/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringDataJPA2/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/target/classes/com/example/springdatajpa2/entity/Direction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/target/classes/com/example/springdatajpa2/entity/Discipline.class" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringDataJPA2/target/classes/com/example/springdatajpa2/entity/Discipline.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringDataJPA2/target/classes/com/example/springdatajpa2/repository/DirectionRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,18 +47,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/liney/source/repos/PD_321_JavaOK/DesktopAWT"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+      <module name="DesktopAWT" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.example.*" />
@@ -160,7 +118,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744289007886</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="AWT DONE">
+      <option name="closed" value="true" />
+      <created>1746156520550</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1746156520550</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
